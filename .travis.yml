@@ -32,12 +32,12 @@ matrix:
     bundler_args:
     script: 
     - sudo service docker restart ; sleep 10 && bundle exec rspec spec/acceptance/*_spec.rb
-    after_failure:
-    - varnishd -V
-    - varnishlog -V
-    - varnishncsa -V
   notifications:
   email: false
+after_failure:
+- varnishd -V
+- varnishlog -V
+- varnishncsa -V
 deploy:
   provider: puppetforge
   user: camptocamp
