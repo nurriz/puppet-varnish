@@ -7,8 +7,12 @@ matrix:
   fast_finish: true
   include:
   - rvm: 2.1.9
+    sudo: required
+    dist: trusty
     env: PUPPET_GEM_VERSION="~> 4.0"
   - rvm: 2.3.1
+    sudo: required
+    dist: trusty
     env: PUPPET_GEM_VERSION="~> 4"
   - rvm: default
     sudo: required
@@ -34,10 +38,6 @@ matrix:
     - sudo service docker restart ; sleep 10 && bundle exec rspec spec/acceptance/*_spec.rb
   notifications:
   email: false
-after_failure:
-- varnishd -V
-- varnishlog -V
-- varnishncsa -V
 deploy:
   provider: puppetforge
   user: camptocamp
