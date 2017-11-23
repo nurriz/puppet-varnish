@@ -35,7 +35,7 @@ class varnish::repo(
         baseurl  => "http://download.fedoraproject.org/pub/epel/${::operatingsystemmajrelease}/\$basearch",
         enabled  => 1,
         gpgkey   => "http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
-        gpgcheck => 1,
+        gpgcheck => 0,
       }
       case $source {
         'epel': {
@@ -46,7 +46,7 @@ class varnish::repo(
             descr    => 'varnish',
             baseurl  => "https://packagecloud.io/varnishcache/varnish41/el/${::operatingsystemmajrelease}/\$basearch",
             enabled  => '1',
-            gpgcheck => '1',
+            gpgcheck => '0',
             gpgkey   => 'https://packagecloud.io/varnishcache/varnish41/gpgkey',
           }
         }
