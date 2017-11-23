@@ -23,6 +23,7 @@ group :development, :unit_tests do
   gem 'puppet-blacksmith',                                 :require => false if RUBY_VERSION !~ /^1\./
   gem 'json_pure', '< 2.0.2',                              :require => false
   gem 'ruby-augeas',                                       :require => false
+  gem 'semantic_puppet',                                   :require => false
 end
 
 group :system_tests do
