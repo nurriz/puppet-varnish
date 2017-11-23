@@ -16,7 +16,7 @@ class varnish::repo(
         }
         'varnish-cache': {
           include ::apt
-          apt::key { 'varnish':
+          apt::key { '9C96F9CA0DC3F4EA78FF332834BF6E8ECBF5C49E':
             source => 'https://packagecloud.io/varnishcache/varnish41/gpgkey'
           }
           apt::source { 'varnish':
