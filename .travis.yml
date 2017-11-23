@@ -31,11 +31,12 @@ matrix:
     env: BEAKER_set="centos-7"
     bundler_args:
     script: 
+    - sudo service docker restart ; sleep 10 && bundle exec rspec spec/acceptance/*_spec.rb
+    after_failure:
     - varnishd -V
     - varnishlog -V
     - varnishncsa -V
-    - sudo service docker restart ; sleep 10 && bundle exec rspec spec/acceptance/*_spec.rb
-notifications:
+  notifications:
   email: false
 deploy:
   provider: puppetforge
