@@ -29,6 +29,17 @@ describe 'varnish' do
         it { is_expected.to be_listening }
         it { is_expected.to be_listening.on('127.0.0.1').with('tcp') }
       end
+      describe process('varnishd') do
+        describe '#args' do
+          subject { super().args }
+          it { is_expected.to match(/-s file,\/var\/lib\/varnish\/varnish_storage.bin,100M/) }
+        end
+
+        describe '#args' do
+          subject { super().args }
+          it { is_expected.to match(/-t 60/) }
+        end
+      end
     end
 
     context 'with varnishlog' do
