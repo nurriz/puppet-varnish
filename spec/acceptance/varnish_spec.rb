@@ -17,6 +17,10 @@ describe 'varnish' do
         apply_manifest(pp, :catch_changes => true)
       end
 
+      describe service('varnishd') do
+        it { should be_running }
+      end
+
       describe port(6081) do
         it { is_expected.to be_listening }
       end
@@ -74,6 +78,10 @@ describe 'varnish' do
 
         apply_manifest(pp, :catch_failures => true)
         apply_manifest(pp, :catch_changes => true)
+      end
+
+      describe service('varnishd') do
+        it { should be_running }
       end
 
       describe port(6080) do
@@ -134,6 +142,10 @@ describe 'varnish' do
 
         apply_manifest(pp, :expect_failures => true)
         # TODO: catch error message
+      end
+
+      describe service('varnishd') do
+        it { should be_running }
       end
 
       describe port(6081) do
