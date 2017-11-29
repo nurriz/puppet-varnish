@@ -22,7 +22,7 @@ class varnish::repo(
           $os_downcase = downcase($::operatingsystem)
           apt::source { 'varnish':
             ensure   => $ensure,
-            location => "https://packagecloud.io/varnishcache/varnish41/${::os_downcase}/",
+            location => "https://packagecloud.io/varnishcache/varnish41/${os_downcase}/",
             release  => $::lsbdistcodename,
             repos    => 'main',
             key      => '9C96F9CA0DC3F4EA78FF332834BF6E8ECBF5C49E',
