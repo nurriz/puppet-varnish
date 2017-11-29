@@ -70,7 +70,7 @@ describe 'varnish' do
           admin_listen_address => '0.0.0.0',
           admin_listen_port    => 6083,
           listen_address       => 'localhost',
-          listen_port          => 6080,
+          listen_port          => 6081,
           storage              => 'file,/var/lib/varnish/varnish_storage.bin,100M',
           ttl                  => 60,
         }
@@ -96,7 +96,7 @@ describe 'varnish' do
         end
       end
 
-      describe port(6080) do
+      describe port(6081) do
         it { is_expected.to be_listening }
       end
 
