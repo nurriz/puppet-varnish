@@ -84,15 +84,6 @@ describe 'varnish' do
         it { should be_running }
       end
 
-      describe port(6080) do
-        it { is_expected.to be_listening }
-      end
-
-      describe port(6083) do
-        it { is_expected.to be_listening }
-        it { is_expected.to be_listening.on('0.0.0.0').with('tcp') }
-      end
-
       describe process('varnishd') do
         describe '#args' do
           subject { super().args }
@@ -104,6 +95,16 @@ describe 'varnish' do
           it { is_expected.to match(/-t 60/) }
         end
       end
+
+      describe port(6080) do
+        it { is_expected.to be_listening }
+      end
+
+      describe port(6083) do
+        it { is_expected.to be_listening }
+        it { is_expected.to be_listening.on('0.0.0.0').with('tcp') }
+      end
+
     end
 
     context 'with broken vcl file' do
