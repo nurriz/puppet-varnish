@@ -17,7 +17,7 @@ describe 'varnish' do
         apply_manifest(pp, :catch_changes => true)
       end
 
-      describe service('varnishd') do
+      describe service('varnish') do
         it { should be_running }
       end
 
@@ -80,7 +80,7 @@ describe 'varnish' do
         apply_manifest(pp, :catch_changes => true)
       end
 
-      describe service('varnishd') do
+      describe service('varnish') do
         it { should be_running }
       end
 
@@ -144,7 +144,7 @@ describe 'varnish' do
         # TODO: catch error message
       end
 
-      describe service('varnishd') do
+      describe service('varnish') do
         it { should be_running }
       end
 
